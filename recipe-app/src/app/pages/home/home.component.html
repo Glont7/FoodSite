@@ -10,14 +10,18 @@
 {{searchValue}}
 
 <div class="card-container">
-  <!-- <app-recipe-card [recipe]="recipes[0]"></app-recipe-card>
+  <!-- Primele 3 retete
+  <app-recipe-card [recipe]="recipes[0]"></app-recipe-card>
   <app-recipe-card [recipe]="recipes[1]"></app-recipe-card>
   <app-recipe-card [recipe]="recipes[2]"></app-recipe-card> -->
 
   @for (recipe of dbRecipes; track $index) {
   <app-recipe-card [recipe]="recipe"></app-recipe-card>
-  } @empty {
-  <div>No items to display</div>
-  }
+  }  @for (recipe of dummyRecipes; track $index) {
+    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    } @empty {
+    <div>No items to display</div>
+    }
+
 </div>
 {{ errorMessage }}
