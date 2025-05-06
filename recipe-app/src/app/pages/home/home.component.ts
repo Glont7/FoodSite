@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { RecipeCardComponent } from '../../components/recipe-card/recipe-card.component';
 import { Recipe } from '../../interfaces/recipe.interface';
 import { RecipesService } from '../../services/recipes.service';
@@ -28,11 +28,14 @@ export class HomeComponent {
           console.log(response);
           this.dummyRecipes = response.recipes;
           this.filteredRecipes=response.recipes;
+          
         },
+
         error: (err) => {
           console.log(err);
           this.errorMessage = err.message;
         },
+
       });
     } catch (error) {
       this.errorMessage = error;

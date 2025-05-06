@@ -17,8 +17,9 @@
 
   @for (recipe of dbRecipes; track $index) {
   <app-recipe-card [recipe]="recipe"></app-recipe-card>
+  <!-- Retetele din dummyjson 
   }  @for (recipe of dummyRecipes; track $index) {
-    <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    <app-recipe-card [recipe]="recipe"></app-recipe-card> -->
     } @empty {
     <div>No items to display</div>
     }

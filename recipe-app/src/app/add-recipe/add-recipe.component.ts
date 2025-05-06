@@ -9,6 +9,7 @@ import {
 import { image } from '../../../node_modules 2/ansi-escapes';
 import { RecipesService } from '../services/recipes.service';
 import { Recipe } from '../interfaces/recipe.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-recipe',
@@ -20,7 +21,7 @@ export class AddRecipeComponent {
   binding: any;
   localStorageValue: string|null ='';
 
-  constructor(readonly recipeService: RecipesService){}
+  constructor(readonly recipeService: RecipesService, readonly router:Router){}
   addRecipeForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     difficulty:new FormControl('', [Validators.required,Validators.minLength(3)]),
@@ -32,19 +33,19 @@ export class AddRecipeComponent {
   });
 
   onSubmit() {
-    //if (this.addRecipeForm.valid) console.log(this.addRecipeForm.value);
-   // else console.error('FORM IS NOT VALID');
-   //const jsonOB={
-   // a:12,
-   // height:180,
+  //  if (this.addRecipeForm.valid) console.log(this.addRecipeForm.value);
+  //  else console.error('FORM IS NOT VALID');
+  //  const jsonOB={
+  //  a:12,
+  //  height:180,
   //  test:{
-   //   a:'another object',
+  //    a:'another object',
   //  },
   //  array:['1',2, 4],
   // }
- //  localStorage.setItem('theme', JSON.stringify(jsonOB));
+  // localStorage.setItem('theme', JSON.stringify(jsonOB));
   // sessionStorage.setItem('theme', 'light');
- //  this.localStorageValue=localStorage.getItem('theme');
+  // this.localStorageValue=localStorage.getItem('theme');
 
  if(this.addRecipeForm.valid){
   this.recipeService.addDBRecipes(
@@ -52,5 +53,9 @@ export class AddRecipeComponent {
   );
  }
 
+  }
+
+  redirectToHomeComponent(){
+    this.router.navigateByUrl('recipes');
   }
 }

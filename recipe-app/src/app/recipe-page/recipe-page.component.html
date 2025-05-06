@@ -1,2 +1,12 @@
 <p>recipe-page works!</p>
 <div>Id: {{ this.router.snapshot.paramMap.get("id") }}</div>
+
+
+<!-- <div *ngFor="let recipe of dbRecipes">
+    <div class="card-container">
+        <div>{{ recipe.name | uppercase }}</div>
+        <img [src]="recipe.image" alt="recipe-image" />
+        <div><b>Preparation Time: </b> {{ recipe.prepTimeMinutes }}</div>
+        <div>Difficulty: {{ recipe.difficulty }}</div>
+    </div>
+</div> -->
