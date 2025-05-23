@@ -12,6 +12,7 @@ const schema = i.schema({
       image: i.string(),
       difficulty: i.string(),
       prepTimeMinutes: i.number(),
+      cuisine: i.string(),
     }),
   },
 });

@@ -5,7 +5,8 @@ export interface Recipe {
 	tags: string[];
 	prepTimeMinutes: number;
 	difficulty?: string;
+	cuisine: string;
 }
 
-const a: Pick<Recipe, 'name'>={name:'aaa'}
+//const a: Pick<Recipe, 'name'>={name:'aaa'}
 //const b: Omit<Recipe, 'name'>={id:''};

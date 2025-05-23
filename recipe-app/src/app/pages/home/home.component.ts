@@ -19,6 +19,8 @@ export class HomeComponent {
   filteredRecipes!: Recipe[];
   dbRecipes!:any[];
   searchValue='';
+  searchTerm: string = '';
+
 
   constructor(recipesService: RecipesService, readonly router:Router) {
     this.recipes = recipesService.recipes;
@@ -38,7 +40,7 @@ export class HomeComponent {
 
       });
     } catch (error) {
-      this.errorMessage = error;
+      this.errorMessage = error; 
     }
     db.subscribeQuery({ recipes: {} }, (resp) => {
       if (resp.error) {
@@ -50,10 +52,21 @@ export class HomeComponent {
     });
   }
 
-  filterValues(){
-    this.filteredRecipes=this.dummyRecipes.filter((recipe)=> recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())
-  );
+  onSearchChange() {
+    this.filteredRecipes = this.dummyRecipes.filter(recipe =>
+      recipe.name.toLowerCase().includes(this.searchValue.toLowerCase())
+    );
   }
+
+  // filterValues(){
+  //   this.filteredRecipes=this.dummyRecipes.filter((recipe)=> recipe.name.toUpperCase().includes(this.searchValue.toUpperCase())
+  // );
+  // }
+  get filteredValues(): Recipe[] {
+  return this.recipes.filter(recipe =>
+    recipe.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+  );
+}
 
   redirectToAddRecipe(){
     this.router.navigateByUrl('add-recipe');

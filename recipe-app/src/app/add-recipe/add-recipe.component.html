@@ -1,20 +1,24 @@
-<!--<p>add-recipe works!</p>
-<label>NgModel input</label>
-<input type="text" [(ngModel)]="binding" />
-{{ binding }}-->
-
+<h1 class="page-title">Add Recipe</h1>
 <form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()" class="form-container">
-  <label>Name</label>
-  <input type="text" formControlName="name" />
-  <label>Image URL</label>
-  <input type="text" formControlName="image" />
-  <label>Difficulty</label>
-  <input type="text" formControlName="difficulty" />
-  <label>Preparation Time</label>
-  <input type="number" formControlName="prepTimeMinutes" />
-  <button type="submit">Submit</button>
+  <label class="form-label">Name</label>
+  <input type="text" formControlName="name" class="form-input" />
+  
+  <label class="form-label">Image URL</label>
+  <input type="text" formControlName="image" class="form-input" />
+  
+  <label class="form-label">Cuisine</label>
+  <input type="text" formControlName="cuisine" class="form-input" />
+
+  <label class="form-label">Difficulty</label>
+  <input type="text" formControlName="difficulty" class="form-input" />
+  
+  <label class="form-label">Preparation Time</label>
+  <input type="number" formControlName="prepTimeMinutes" class="form-input" />
+  
+  <div class="button-group">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="button" class="btn btn-secondary" (click)="redirectToHomeComponent()">Return Home</button>
+  </div>
 </form>
 
-<button (click)="redirectToHomeComponent()">Return Home</button>
-
-{{localStorageValue}}
+<p class="local-storage">{{ localStorageValue }}</p>

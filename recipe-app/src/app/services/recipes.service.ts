@@ -9,29 +9,30 @@ import { id } from '@instantdb/core';
 })
 export class RecipesService {
   recipes: Recipe[] = [
-    {
-      id: '1',
-      name: 'Classic Margherita Pizza',
-      image: 'https://cdn.dummyjson.com/recipe-images/1.webp',
-      tags: ['Pizza', 'Italian'],
-      prepTimeMinutes: 20,
-    },
-    {
-      id: '2',
-      name: 'Salad',
-      image: 'https://cdn.dummyjson.com/recipe-images/2.webp',
-      tags: ['Pizza', 'Italian'],
-      prepTimeMinutes: 20,
-    },
-    {
-      id: '3',
-      name: 'Cookies',
-      image: 'https://cdn.dummyjson.com/recipe-images/3.webp',
-      tags: ['Pizza', 'Italian'],
-      prepTimeMinutes: 20,
-    },
+    // {
+    //   id: '1',
+    //   name: 'Classic Margherita Pizza',
+    //   image: 'https://cdn.dummyjson.com/recipe-images/1.webp',
+    //   tags: ['Pizza', 'Italian'],
+    //   prepTimeMinutes: 20,
+    // },
+    // {
+    //   id: '2',
+    //   name: 'Salad',
+    //   image: 'https://cdn.dummyjson.com/recipe-images/2.webp',
+    //   tags: ['Pizza', 'Italian'],
+    //   prepTimeMinutes: 20,
+    // },
+    // {
+    //   id: '3',
+    //   name: 'Cookies',
+    //   image: 'https://cdn.dummyjson.com/recipe-images/3.webp',
+    //   tags: ['Pizza', 'Italian'],
+    //   prepTimeMinutes: 20,
+    // },
   ];
   readonly API_URL = 'https://dummyjson.com/recipes';
+
 
   constructor(readonly http: HttpClient) {}
 
@@ -50,6 +51,7 @@ export class RecipesService {
         image:recipeInput.image,
         difficulty:recipeInput.difficulty,
         prepTimeMinutes:recipeInput.prepTimeMinutes,
+        cuisine:recipeInput.cuisine,
       })
     );
     console.log('Success, the recipe has been added')

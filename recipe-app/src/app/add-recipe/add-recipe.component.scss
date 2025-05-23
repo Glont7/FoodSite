@@ -1,9 +1,81 @@
-.form-container{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    border: 1px solid wheat;
-    border-radius: 2%;
-    background-color: cornsilk;
-    padding: 4rem;
+$form-accent-color: #e67e22;
+$form-bg-color: #ffffff;
+$form-border-color: #dddddd;
+
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: $form-accent-color;
+}
+
+.form-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: $form-bg-color;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-input {
+  padding: 0.5rem;
+  border: 1px solid $form-border-color;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+
+  &:focus {
+    border-color: $form-accent-color;
+    box-shadow: 0 0 0 2px rgba($form-accent-color, 0.2);
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &.btn-primary {
+    background-color: $form-accent-color;
+    color: #fff;
+
+    &:hover {
+      background-color: darken($form-accent-color, 10%);
+    }
+  }
+
+  &.btn-secondary {
+    background-color: #eee;
+    color: #333;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+.local-storage {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #666;
 }
